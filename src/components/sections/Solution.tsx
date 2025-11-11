@@ -9,7 +9,7 @@ interface SolutionProps {
 
 export default function Solution({ rootRef, children }: SolutionProps) {
   return (
-    <section ref={rootRef} className="min-h-screen flex items-center justify-center px-8 py-16" style={{ backgroundColor: "#FCCC0A", color: "black" }}>
+    <section ref={rootRef} className="min-h-screen flex items-center justify-center px-8 py-16 bg-white" style={{ color: "#FCCC0A" }}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -19,8 +19,8 @@ export default function Solution({ rootRef, children }: SolutionProps) {
       >
         {/* Opportunity Section */}
         <div className="mb-12">
-          <h2 className="text-4xl font-bold mb-6">Solution</h2>
-          <div className="space-y-4 text-lg leading-relaxed text-black/80">
+          <h2 className="text-4xl font-bold mb-6" style={{ color: "#FCCC0A" }}>Solution</h2>
+          <div className="space-y-4 text-lg leading-relaxed" style={{ color: "#FCCC0A" }}>
             <p>
               Federal and regional funding for transportation increasingly prioritizes equity, climate resilience, and public participation.
               Programs such as the FTA's Reconnecting Communities Initiative and Thriving Communities Program require cities to demonstrate data-backed equity impacts of their proposals.
@@ -38,13 +38,13 @@ export default function Solution({ rootRef, children }: SolutionProps) {
 
         {/* Proposed Solution Section */}
         <div>
-          <h2 className="text-4xl font-bold mb-6">Proposed Solution: Street Shift</h2>
+          <h2 className="text-4xl font-bold mb-6" style={{ color: "#FCCC0A" }}>Proposed Solution: Street Shift</h2>
           
-          <p className="text-lg leading-relaxed text-black/80 mb-6">
+          <p className="text-lg leading-relaxed mb-6" style={{ color: "#FCCC0A" }}>
             Street Shift is a web-based decision-support and storytelling platform that:
           </p>
           
-          <ul className="space-y-4 text-lg leading-relaxed text-black/80 mb-6">
+          <ul className="space-y-4 text-lg leading-relaxed mb-6" style={{ color: "#FCCC0A" }}>
             <li className="flex items-start">
               <span className="font-bold mr-4">•</span>
               <span><strong>Maps current transit access</strong> across a city (starting with Sacramento).</span>
@@ -63,7 +63,7 @@ export default function Solution({ rootRef, children }: SolutionProps) {
             </li>
           </ul>
 
-          <p className="text-lg leading-relaxed text-black italic font-semibold">
+          <p className="text-lg leading-relaxed italic font-semibold" style={{ color: "#FCCC0A" }}>
             The platform bridges the technical and human dimensions of transit planning — empowering citizens, advocates, and government partners alike to design systems that reflect lived experience, not just ridership numbers.
           </p>
         </div>

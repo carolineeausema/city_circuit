@@ -12,19 +12,30 @@ type Station = {
 export default function BottomLine({ stations }: { stations: Station[] }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [positions, setPositions] = useState<number[]>([]);
+  const [maxHeight, setMaxHeight] = useState(0);
 
-  // Compute dot positions
+  // Compute dot positions and track max section height
   const updatePositions = () => {
     if (!containerRef.current) return;
     const width = containerRef.current.offsetWidth;
     const pos = stations.map((_, i) => (i / (stations.length - 1)) * width);
     setPositions(pos);
+
+    // Calculate max height of all sections
+    const heights = stations.map((s) => s.ref.current?.offsetHeight || 0);
+    const max = Math.max(...heights);
+    setMaxHeight(max);
   };
 
   useEffect(() => {
     updatePositions();
     window.addEventListener("resize", updatePositions);
-    return () => window.removeEventListener("resize", updatePositions);
+    // Also update on scroll to track dynamic heights
+    window.addEventListener("scroll", updatePositions);
+    return () => {
+      window.removeEventListener("resize", updatePositions);
+      window.removeEventListener("scroll", updatePositions);
+    };
   }, [stations]);
 
   // Determine active station based on viewport center
@@ -59,7 +70,7 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
     >
       <div className="relative w-full max-w-[1100px] mx-auto px-6">
         {/* Track */}
-        <div className="absolute top-1/2 left-0 w-full h-1 bg-white/10 rounded-full transform -translate-y-1/2" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-black rounded-full transform -translate-y-1/2" />
 
         {/* SubwayCar train */}
         <SubwayCar progress={scrollProgress} />
@@ -83,7 +94,7 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
                         width: 14,
                         height: 14,
                         borderRadius: 9999,
-                        background: isActive ? s.color : "rgba(255,255,255,0.18)",
+                        background: isActive ? s.color : "rgba(0,0,0,0.18)",
                         boxShadow: isActive ? `0 0 12px ${s.color}66` : "none",
                       }}
                     />

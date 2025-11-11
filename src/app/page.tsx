@@ -6,12 +6,15 @@ import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
 import Details from "@/components/sections/Details";
 import { useInView } from "framer-motion";
+import { useState } from "react";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function HomePage() {
   const landingRef = React.useRef<HTMLElement>(null!);
   const problemRef = React.useRef<HTMLElement>(null!);
   const solutionRef = React.useRef<HTMLElement>(null!);
   const detailsRef = React.useRef<HTMLElement>(null!);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const stations = [
     { label: "Landing", color: "#00933C", ref: landingRef },
@@ -27,19 +30,46 @@ export default function HomePage() {
   }));
 
   return (
-    <main className="relative overflow-x-hidden bg-black min-h-screen">
+    <main className="relative overflow-x-hidden bg-white min-h-screen">
+      {/* Asterisk with hover tooltip */}
+      <div className="fixed top-8 left-8 z-40 group cursor-pointer">
+        <div
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+          className="text-6xl font-bold hover:text-gray-500 transition-colors"
+          style={{ color: "#00933C" }}
+        >
+          *
+        </div>
+        
+        {/* Tooltip */}
+        {showTooltip && (
+          <div className="absolute left-16 top-0 bg-white/80 backdrop-blur-md border border-gray-200/30 rounded-lg p-4 w-72 shadow-lg ring-1 ring-black/10">
+            <p className="text-sm text-gray-900 leading-relaxed">
+              This is a website I developed myself - which is super fun! ....but if there are some glitchy graphics or formatting, it is likely because this site prefers Chrome with regular dimensions!
+            </p>
+          </div>
+        )}
+      </div>
+
       <BottomLine stations={stationsWithInView} />
 
-      <Landing rootRef={landingRef} />
 
-      <Problem rootRef={problemRef} />
 
-      <Solution rootRef={solutionRef} />
 
-      <Details rootRef={detailsRef} />
+  <Landing rootRef={landingRef} />
+  <SectionDivider color="#0039A6" />
+
+  <Problem rootRef={problemRef} />
+  <SectionDivider color="#FCCC0A" />
+
+  <Solution rootRef={solutionRef} />
+  <SectionDivider color="#EE352E" />
+
+  <Details rootRef={detailsRef} />
 
       {/* Extra space for bottom line */}
-      <div className="h-32 bg-black" />
+      <div className="h-32 bg-white" />
     </main>
   );
 }

@@ -8,11 +8,11 @@ interface ProblemProps {
 
 export default function Problem({ rootRef, children }: ProblemProps) {
   return (
-    <section ref={rootRef} className="h-screen flex items-center justify-center px-8" style={{ backgroundColor: "#0039A6", color: "white" }}>
+    <section ref={rootRef} className="flex items-center justify-center px-8 bg-white" style={{ color: "#0039A6", minHeight: "100vh" }}>
       <div className="max-w-3xl text-center">
-        <h2 className="text-4xl font-bold mb-6 text-white">The Problem</h2>
+        <h2 className="text-4xl font-bold mb-6" style={{ color: "#0039A6" }}>The Problem</h2>
         
-        <div className="space-y-4 text-lg leading-relaxed text-gray-100 mb-6">
+        <div className="space-y-4 text-lg leading-relaxed mb-6" style={{ color: "#0039A6" }}>
           <p>
             Public transit is one of the strongest levers local governments have to advance equity, opportunity, and sustainability — yet the process for planning new routes or improvements remains opaque and data-heavy.
           </p>
@@ -26,8 +26,8 @@ export default function Problem({ rootRef, children }: ProblemProps) {
           </p>
         </div>
         
-        <div className="border-t-2 border-gray-400 pt-4 mt-6">
-          <p className="text-base font-semibold italic text-gray-200">
+        <div className="border-t-2 pt-4 mt-6" style={{ borderColor: "#0039A6" }}>
+          <p className="text-base font-semibold italic" style={{ color: "#0039A6" }}>
             Transit planners have data, but not a shared story that shows how route changes shift opportunity and access.
           </p>
         </div>

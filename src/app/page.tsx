@@ -1,65 +1,60 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import AnimatedSection from "@/components/AnimatedCircuit";
+import BottomLine from "@/components/BottomLine";
+import { useInView } from "framer-motion";
 
-export default function Home() {
+export default function HomePage() {
+  const landingRef = React.useRef<HTMLElement>(null!);
+  const problemRef = React.useRef<HTMLElement>(null!);
+  const solutionRef = React.useRef<HTMLElement>(null!);
+  const detailsRef = React.useRef<HTMLElement>(null!);
+
+  const stations = [
+    { label: "Landing", color: "#00933C", ref: landingRef },
+    { label: "Problem", color: "#0039A6", ref: problemRef },
+    { label: "Solution", color: "#FCCC0A", ref: solutionRef },
+    { label: "Details", color: "#EE352E", ref: detailsRef },
+  ];
+
+  // For BottomLine, compute inView
+  const stationsWithInView = stations.map((s) => ({
+    ...s,
+    inView: useInView(s.ref as any, { amount: 0.35, once: false }),
+  }));
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="relative overflow-x-hidden bg-black min-h-screen">
+      <BottomLine stations={stationsWithInView} />
+
+      <AnimatedSection rootRef={landingRef} className="bg-[#00933C] text-white" sectionId="landing">
+        <h1 className="text-6xl font-extrabold tracking-tight">City Circuit</h1>
+        <p className="text-xl text-gray-100 mt-4 max-w-xl mx-auto">
+          Rethinking how transportation connects people, neighborhoods, and opportunity.
+        </p>
+        <div className="absolute bottom-10 animate-bounce text-sm opacity-80">↓ Next Stop</div>
+      </AnimatedSection>
+
+      <AnimatedSection rootRef={problemRef} className="bg-[#0039A6] text-white" sectionId="problem">
+        <h2 className="text-4xl font-bold mb-4">The Problem</h2>
+        <p className="max-w-2xl text-lg leading-relaxed text-gray-100">
+          Millions live in transit deserts—areas where public transportation is scarce or unreliable.
+        </p>
+      </AnimatedSection>
+
+      <AnimatedSection rootRef={solutionRef} className="bg-[#FCCC0A] text-black" sectionId="solution">
+        <h2 className="text-4xl font-bold mb-4">The Solution</h2>
+        <p className="max-w-2xl text-lg leading-relaxed text-black/80">
+          City Circuit visualizes how better transit connections can shorten commute times and expand opportunities.
+        </p>
+      </AnimatedSection>
+
+      <AnimatedSection rootRef={detailsRef} className="bg-[#EE352E] text-white" sectionId="details">
+        <h2 className="text-4xl font-bold mb-4">More Details</h2>
+        <p className="max-w-3xl text-lg leading-relaxed text-gray-100">
+          Dive deeper into data and see how small improvements ripple across communities.
+        </p>
+      </AnimatedSection>
+    </main>
   );
 }

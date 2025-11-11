@@ -17,10 +17,10 @@ const SubwayCar: React.FC<SubwayCarProps> = ({ progress }) => {
       }}
     >
       {/* D-Train Text in Deloitte Style with quad shape and pointed bottom right */}
-      <div className="relative px-4 py-2 bg-white shadow-lg border-2 border-[#004B87]" style={{ borderRadius: "0 50px 0 0" }}>
+      <div className="relative px-4 py-2 bg-gray-300 shadow-lg" style={{ borderRadius: "0 50px 0 0" }}>
         <div className="flex items-center gap-0 whitespace-nowrap relative z-10">
           <span
-            className="font-bold text-sm tracking-wider text-[#004B87]"
+            className="font-bold text-sm tracking-wider text-gray-800"
             style={{
               fontFamily: "'Arial', 'Helvetica', sans-serif",
               letterSpacing: "0.05em",

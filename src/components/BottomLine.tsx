@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Label from "./Label"; // import your new Label component
 
 type Station = {
   label: string;
@@ -76,17 +77,8 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
                   </div>
                 </div>
 
-                {/* Label styled like subway signage */}
-                <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-max pointer-events-auto">
-                  <div
-                    onClick={() => s.ref.current?.scrollIntoView({ behavior: "smooth" })}
-                    className={`px-3 py-1 rounded-md text-xs font-bold uppercase text-white tracking-wider cursor-pointer select-none shadow-md ${
-                      isActive ? "bg-gray-900" : "bg-gray-800/80"
-                    }`}
-                  >
-                    {s.label}
-                  </div>
-                </div>
+                {/* Label using new Label component */}
+                <Label station={s} isActive={isActive} />
               </div>
             );
           })}

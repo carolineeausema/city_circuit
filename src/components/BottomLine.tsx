@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Label from "./Label"; // import your new Label component
+import Label from "./Label";
+import SubwayCar from "./SubwayCar";
 
 type Station = {
   label: string;
@@ -28,6 +29,8 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
 
   // Determine active station based on viewport center
   const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  
   useEffect(() => {
     const handler = () => {
       const index = stations.findIndex((s) => {
@@ -37,6 +40,13 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
         return rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5;
       });
       if (index >= 0) setActiveIndex(index);
+
+      // Calculate scroll progress for train
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const pageHeight = document.body.scrollHeight - viewportHeight;
+      const progress = pageHeight > 0 ? scrollY / pageHeight : 0;
+      setScrollProgress(Math.min(Math.max(progress, 0), 1));
     };
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
@@ -50,6 +60,9 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
       <div className="relative w-full max-w-[1100px] mx-auto px-6">
         {/* Track */}
         <div className="absolute top-1/2 left-0 w-full h-1 bg-white/10 rounded-full transform -translate-y-1/2" />
+
+        {/* SubwayCar train */}
+        <SubwayCar progress={scrollProgress} />
 
         {/* Station dots */}
         <div className="relative flex justify-between items-center w-full">

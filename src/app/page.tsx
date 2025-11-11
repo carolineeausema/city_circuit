@@ -37,6 +37,9 @@ export default function HomePage() {
       <Solution rootRef={solutionRef} />
 
       <Details rootRef={detailsRef} />
+
+      {/* Extra space for bottom line */}
+      <div className="h-32 bg-black" />
     </main>
   );
 }

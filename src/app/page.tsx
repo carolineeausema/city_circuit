@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import BottomLine from "@/components/BottomLine";
+import CornerP5 from "@/components/CornerP5";
 import Landing from "@/components/sections/Landing";
 import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
@@ -30,46 +31,52 @@ export default function HomePage() {
   }));
 
   return (
-    <main className="relative overflow-x-hidden bg-white min-h-screen">
-      {/* Asterisk with hover tooltip */}
-      <div className="fixed top-8 left-8 z-40 group cursor-pointer">
-        <div
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-          className="text-6xl font-bold hover:text-gray-500 transition-colors"
-          style={{ color: "#00933C" }}
-        >
-          *
-        </div>
-        
-        {/* Tooltip */}
-        {showTooltip && (
-          <div className="absolute left-16 top-0 bg-white/80 backdrop-blur-md border border-gray-200/30 rounded-lg p-4 w-72 shadow-lg ring-1 ring-black/10">
-            <p className="text-sm text-gray-900 leading-relaxed">
-              This is a website I developed myself - which is super fun! ....but if there are some glitchy graphics or formatting, it is likely because this site prefers Chrome with regular dimensions!
-            </p>
+    <main className="relative overflow-x-hidden min-h-screen">
+      {/* Layer 1: White background (bottom) */}
+      <div className="fixed top-0 left-0 w-full h-full bg-white -z-10" />
+
+      {/* Layer 2: Sketches (middle) - using fixed so they stay in viewport and render */}
+      <CornerP5 />
+      
+      {/* Layer 3: All page content (top) - opaque backgrounds */}
+      <div className="relative z-10">
+        {/* Asterisk with hover tooltip */}
+        <div className="fixed top-8 left-8 z-40 group cursor-pointer">
+          <div
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+            className="text-6xl font-bold hover:text-gray-500 transition-colors"
+            style={{ color: "#00933C" }}
+          >
+            *
           </div>
-        )}
+          
+          {/* Tooltip */}
+          {showTooltip && (
+            <div className="absolute left-16 top-0 bg-white/80 backdrop-blur-md border border-gray-200/30 rounded-lg p-4 w-72 shadow-lg ring-1 ring-black/10">
+              <p className="text-sm text-gray-900 leading-relaxed">
+                This is a website I developed myself - which is super fun! ....but if there are some glitchy graphics or formatting, it is likely because this site prefers Chrome with regular dimensions!
+              </p>
+            </div>
+          )}
+        </div>
+
+        <BottomLine stations={stationsWithInView} />
+
+        <Landing rootRef={landingRef} />
+        <SectionDivider color="#0039A6" />
+
+        <Problem rootRef={problemRef} />
+        <SectionDivider color="#FCCC0A" />
+
+        <Solution rootRef={solutionRef} />
+        <SectionDivider color="#EE352E" />
+
+        <Details rootRef={detailsRef} />
+
+        {/* Extra space for bottom line */}
+        <div className="h-32 bg-white" />
       </div>
-
-      <BottomLine stations={stationsWithInView} />
-
-
-
-
-  <Landing rootRef={landingRef} />
-  <SectionDivider color="#0039A6" />
-
-  <Problem rootRef={problemRef} />
-  <SectionDivider color="#FCCC0A" />
-
-  <Solution rootRef={solutionRef} />
-  <SectionDivider color="#EE352E" />
-
-  <Details rootRef={detailsRef} />
-
-      {/* Extra space for bottom line */}
-      <div className="h-32 bg-white" />
     </main>
   );
 }

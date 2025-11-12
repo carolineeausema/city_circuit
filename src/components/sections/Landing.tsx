@@ -17,8 +17,11 @@ export default function Landing({ rootRef, children }: LandingProps) {
     <section ref={rootRef} className="flex items-center justify-center px-8 relative bg-white" style={{ color: "#00933C", minHeight: "100vh" }}>
       <div className="max-w-4xl text-center">
         <h1 className="text-6xl font-extrabold tracking-tight" style={{ color: "#00933C" }}>City Circuit</h1>
-        <p className="text-xl mt-4 max-w-xl mx-auto" style={{ color: "#00933C" }}>
-          Rethinking how transportation connects people, neighborhoods, and opportunity.
+        <p className="text-xl mt-4 max-w-2xl mx-auto" style={{ color: "#00933C" }}>
+          A web-based simulation and visualization platform that makes transit planning transparent and participatory.
+        </p>
+        <p className="text-lg mt-6 max-w-3xl mx-auto italic font-medium" style={{ color: "#00933C" }}>
+          Visualize how small shifts in service create large shifts in access, opportunity, and equity.
         </p>
         {children}
       </div>

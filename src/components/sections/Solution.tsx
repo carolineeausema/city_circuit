@@ -15,57 +15,96 @@ export default function Solution({ rootRef, children }: SolutionProps) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, amount: 0.3 }}
-        className="max-w-4xl"
+        className="max-w-5xl"
       >
         {/* Opportunity Section */}
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold mb-6" style={{ color: "#FCCC0A" }}>Solution</h2>
-          <div className="space-y-4 text-lg leading-relaxed" style={{ color: "#FCCC0A" }}>
+        <div className="mb-16">
+          <h2 className="text-5xl font-bold mb-8" style={{ color: "#FCCC0A" }}>Opportunity</h2>
+          <div className="space-y-5 text-lg leading-relaxed" style={{ color: "#FCCC0A" }}>
             <p>
-              Federal and regional funding for transportation increasingly prioritizes equity, climate resilience, and public participation.
-              Programs such as the FTA's Reconnecting Communities Initiative and Thriving Communities Program require cities to demonstrate data-backed equity impacts of their proposals.
+              Federal programs like the <strong>FTA's Reconnecting Communities</strong> and <strong>Thriving Communities Initiative</strong> increasingly require data-backed equity justifications in transportation proposals.
             </p>
             
             <p>
-              However, local agencies often lack the tools to visualize those impacts interactively — leaving valuable funding and trust on the table.
+              However, local governments and MPOs (Metropolitan Planning Organizations) lack tools that can visualize these impacts in human terms — particularly across demographic and socioeconomic layers.
             </p>
             
-            <p className="font-semibold text-black">
-              Street Shift fills this gap by transforming open transportation data into a visual, simulation-based platform that helps both governments and citizens understand how small shifts in transit planning can lead to big changes in access, opportunity, and sustainability.
+            <p className="font-bold text-xl text-black">
+              Street Shift proposes to fill that gap.
             </p>
           </div>
         </div>
 
         {/* Proposed Solution Section */}
-        <div>
-          <h2 className="text-4xl font-bold mb-6" style={{ color: "#FCCC0A" }}>Proposed Solution: Street Shift</h2>
+        <div className="mb-16">
+          <h2 className="text-5xl font-bold mb-8" style={{ color: "#FCCC0A" }}>Proposed Solution: City Circuit</h2>
           
-          <p className="text-lg leading-relaxed mb-6" style={{ color: "#FCCC0A" }}>
-            Street Shift is a web-based decision-support and storytelling platform that:
+          <p className="text-xl leading-relaxed mb-8 font-semibold" style={{ color: "#FCCC0A" }}>
+            City Circuit is a web-based simulation and visualization platform that makes transit planning transparent and participatory. It allows both policymakers and residents to visualize the ripple effects of route changes in real time — showing how small shifts in service can create large shifts in access, opportunity, and equity.
           </p>
-          
-          <ul className="space-y-4 text-lg leading-relaxed mb-6" style={{ color: "#FCCC0A" }}>
-            <li className="flex items-start">
-              <span className="font-bold mr-4">•</span>
-              <span><strong>Maps current transit access</strong> across a city (starting with Sacramento).</span>
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold mr-4">•</span>
-              <span><strong>Overlays key demographic data</strong> (income, age, disability, car ownership).</span>
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold mr-4">•</span>
-              <span><strong>Lets users simulate transit improvements</strong> — such as adding a new bus line or extending a route.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold mr-4">•</span>
-              <span><strong>Calculates impacts in real time</strong>, showing how commute times, job access, and emissions outcomes change.</span>
-            </li>
-          </ul>
+        </div>
 
-          <p className="text-lg leading-relaxed italic font-semibold" style={{ color: "#FCCC0A" }}>
-            The platform bridges the technical and human dimensions of transit planning — empowering citizens, advocates, and government partners alike to design systems that reflect lived experience, not just ridership numbers.
-          </p>
+        {/* Core Features */}
+        <div>
+          <h3 className="text-4xl font-bold mb-8" style={{ color: "#FCCC0A" }}>Core Features</h3>
+          
+          <div className="space-y-8">
+            {/* Interactive Transit Map */}
+            <div className="bg-white/10 rounded-lg p-6 border-l-4" style={{ borderColor: "#FCCC0A" }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: "#FCCC0A" }}>📍 Interactive Transit Map</h4>
+              <ul className="space-y-3 text-lg" style={{ color: "#FCCC0A" }}>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Displays all existing bus and rail routes using GTFS data.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Overlays demographics (income, age, disability status, car ownership).</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* What If Simulation Mode */}
+            <div className="bg-white/10 rounded-lg p-6 border-l-4" style={{ borderColor: "#FCCC0A" }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: "#FCCC0A" }}>🔄 "What If?" Simulation Mode</h4>
+              <ul className="space-y-3 text-lg" style={{ color: "#FCCC0A" }}>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Users can propose adding a new route, adjusting frequency, or extending a line.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>The platform recalculates key accessibility metrics — commute times, jobs reachable, emissions impact.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Equity Visualization */}
+            <div className="bg-white/10 rounded-lg p-6 border-l-4" style={{ borderColor: "#FCCC0A" }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: "#FCCC0A" }}>⚖️ Equity Visualization</h4>
+              <ul className="space-y-3 text-lg" style={{ color: "#FCCC0A" }}>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Highlights which communities see the biggest improvements or remain underserved.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Generates simple "before and after" visuals that can be exported for grant applications or advocacy.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Storytelling Layer */}
+            <div className="bg-white/10 rounded-lg p-6 border-l-4" style={{ borderColor: "#FCCC0A" }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: "#FCCC0A" }}>📊 Storytelling Layer</h4>
+              <ul className="space-y-3 text-lg" style={{ color: "#FCCC0A" }}>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Converts complex transit data into intuitive graphics that communicate both numbers and human impact.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         {children}

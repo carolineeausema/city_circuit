@@ -35,8 +35,7 @@ export default function HomePage() {
       {/* Layer 1: White background (bottom) */}
       <div className="fixed top-0 left-0 w-full h-full bg-white -z-10" />
 
-      {/* Layer 2: Sketches (middle) - using fixed so they stay in viewport and render */}
-      <CornerP5 />
+  {/* Layer 2: (SVG subway map background is now handled in Landing section) */}
       
       {/* Layer 3: All page content (top) - opaque backgrounds */}
       <div className="relative z-10">
@@ -55,7 +54,7 @@ export default function HomePage() {
           {showTooltip && (
             <div className="absolute left-16 top-0 bg-white/80 backdrop-blur-md border border-gray-200/30 rounded-lg p-4 w-72 shadow-lg ring-1 ring-black/10">
               <p className="text-sm text-gray-900 leading-relaxed">
-                This is a website I developed myself - which is super fun! ....but if there are some glitchy graphics or formatting, it is likely because this site prefers Chrome with regular dimensions!
+                This is a website with graphics I programmed myself - which is super fun! ....but if there are some glitchy graphics or formatting, it is likely because this site prefers Chrome with regular dimensions uwu
               </p>
             </div>
           )}

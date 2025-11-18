@@ -74,19 +74,16 @@ export default function Problem({ rootRef, children }: ProblemProps) {
           <div className="h-15" />
           
           <div className="relative">
-            <p className="text-xl font-medium mt-6 mb-0 bg-[#0039A6] text-white p-6 rounded-lg overflow-x-auto">
-              Most residents lack an accessible way to see how transit changes affect them or to advocate for alternatives.
+            <p className="text-xl font-medium mt-6 mb-0 text-[#0039A6] p-6 rounded-lg text-center">
+              Residents don't have an easy way to understand or influence local transit changes.            
             </p>
           </div>
 
-          <div className="h-15" />
-
         </div>
 
-        {/* Centered boxed statement with yellow rounded border, hollow blue text */}
         <div className="flex justify-center mt-8">
-          <div className="w-full max-w-3xl border-2 border-[#FCCC0A] rounded-lg px-6 py-4">
-            <h3 className="text-center text-5xl font-bold m-0" style={{ color: "transparent", WebkitTextStroke: "2.8px #0039A6", WebkitTextFillColor: "transparent" }}>
+          <div className="w-full border-2 border-[#FCCC0A] rounded-lg px-6 py-4">
+            <h3 className="text-center text-5xl font-normal m-0" style={{ color: "transparent", WebkitTextStroke: "2px #0039A6", WebkitTextFillColor: "transparent" }}>
               City Circuit proposes to fill that gap.
             </h3>
           </div>
@@ -95,7 +92,7 @@ export default function Problem({ rootRef, children }: ProblemProps) {
         {children}
       </div>
 
-      <div className="h-30" />
+      <div className="h-40" />
     </section>
   );
 }

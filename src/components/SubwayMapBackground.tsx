@@ -11,7 +11,6 @@ const VIEW_W = 300;
 const VIEW_H = 200;
 const MARGIN = 10;
 
-// Color palette: restrict to primary NYC-style subway colors (red, green, blue, yellow)
 const COLORS = ["#EE352E", "#00933C", "#0039A6", "#FCCC0A"];
 
 type Point = { x: number; y: number };

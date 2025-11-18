@@ -31,7 +31,7 @@ export default function HomePage() {
   }));
 
   return (
-    <main className="relative overflow-x-hidden min-h-screen">
+    <main className="relative overflow-x-visible min-h-screen">
       {/* Layer 1: White background (bottom) */}
       <div className="fixed top-0 left-0 w-full h-full bg-white -z-10" />
 
@@ -71,7 +71,7 @@ export default function HomePage() {
         <div className="h-25" />
 
         <Problem rootRef={problemRef} />
-  <SectionDivider color="#FCCC0A" number={2} />
+  <SectionDivider color="#FCCC0A" number={2} thickness={3} />
 
   <Solution rootRef={solutionRef} onQuickSim={() => landingRef.current?.scrollIntoView({ behavior: 'smooth' })} />
   <SectionDivider color="#EE352E" number={3} />

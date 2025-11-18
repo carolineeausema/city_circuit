@@ -6,7 +6,7 @@ import Landing from "@/components/sections/Landing";
 import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
 import Details from "@/components/sections/Details";
-import { useInView } from "framer-motion";
+import { useInView, useScroll, useTransform, motion } from "framer-motion";
 import { useState } from "react";
 import SectionDivider from "@/components/SectionDivider";
 
@@ -63,13 +63,18 @@ export default function HomePage() {
         <BottomLine stations={stationsWithInView} />
 
         <Landing rootRef={landingRef} />
-        <SectionDivider color="#0039A6" />
+        {/* Fade this first divider from invisible to visible as the user scrolls */}
+        <motion.div style={{ opacity: useTransform(useScroll().scrollY, [0, 300], [0, 1]) }}>
+          <SectionDivider color="#0039A6" number={1} />
+        </motion.div>
+
+        <div className="h-25" />
 
         <Problem rootRef={problemRef} />
-        <SectionDivider color="#FCCC0A" />
+  <SectionDivider color="#FCCC0A" number={2} />
 
-        <Solution rootRef={solutionRef} />
-        <SectionDivider color="#EE352E" />
+  <Solution rootRef={solutionRef} onQuickSim={() => landingRef.current?.scrollIntoView({ behavior: 'smooth' })} />
+  <SectionDivider color="#EE352E" number={3} />
 
         <Details rootRef={detailsRef} />
 

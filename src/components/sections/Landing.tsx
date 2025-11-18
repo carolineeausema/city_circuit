@@ -1,7 +1,6 @@
 "use client";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import SubwayMapBackground from "../SubwayMapBackground";
 
 interface LandingProps {
@@ -15,6 +14,7 @@ export default function Landing({ rootRef, children }: LandingProps) {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const [hovered, setHovered] = useState(false);
   const [mouse, setMouse] = useState<{ x: number; y: number } | null>(null);
+  // Rely on simple CSS balancing where supported; avoid JS text manipulation which caused spacing issues.
 
   return (
     <section
@@ -34,12 +34,21 @@ export default function Landing({ rootRef, children }: LandingProps) {
       {/* Animated subway SVG background */}
       <SubwayMapBackground hovered={hovered} mouse={mouse} />
 
-      <div className="max-w-4xl text-center relative z-10">
-        <h1 className="text-6xl font-extrabold tracking-tight" style={{ color: "#00933C" }}>City Circuit</h1>
-        <p className="text-xl mt-4 max-w-2xl mx-auto" style={{ color: "#00933C" }}>
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <h1
+          className="text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tight"
+          style={{
+            color: "transparent",
+            WebkitTextStroke: "2.8px #00933C",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          City Circuit
+        </h1>
+        <p className="text-xl mt-4 max-w-4xl mx-auto balance" style={{ color: "#00933C" }}>
           A web-based simulation and visualization platform that makes transit planning transparent and participatory.
         </p>
-        <p className="text-lg mt-6 max-w-3xl mx-auto italic font-medium" style={{ color: "#00933C" }}>
+        <p className="text-lg mt-6 max-w-4xl mx-auto italic font-medium balance" style={{ color: "#00933C" }}>
           Visualize how small shifts in service create large shifts in access, opportunity, and equity.
         </p>
         {children}

@@ -18,10 +18,9 @@ export default function HomePage() {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const stations = [
-    { label: "Landing", color: "#00933C", ref: landingRef },
-    { label: "Problem", color: "#0039A6", ref: problemRef },
-    { label: "Solution", color: "#FCCC0A", ref: solutionRef },
-    { label: "Details", color: "#EE352E", ref: detailsRef },
+    { label: "Problem", color: "#EE352E", ref: problemRef }, // Red
+    { label: "Idea", color: "#FCCC0A", ref: solutionRef }, // Keep yellow
+    { label: "Solution", color: "#00933C", ref: detailsRef }, // Green
   ];
 
   // For BottomLine, compute inView

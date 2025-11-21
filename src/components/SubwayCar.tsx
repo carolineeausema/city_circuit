@@ -8,6 +8,15 @@ interface SubwayCarProps {
 }
 
 const SubwayCar: React.FC<SubwayCarProps> = ({ progress }) => {
+  // Hide the train when it moves off-screen to the right
+  // Since we use translateX(-50%), at 100% progress half the train is still visible
+  // So we hide it when progress exceeds 100% to ensure it's completely off-screen
+  const isVisible = progress < 1.0;
+  
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     <div
       className="absolute bottom-6 flex items-center transform transition-transform duration-100"
@@ -31,7 +40,7 @@ const SubwayCar: React.FC<SubwayCarProps> = ({ progress }) => {
           </span>
           
           {/* Deloitte Green Dot - positioned like a period with no gap */}
-          <div className="relative flex items-center justify-center ml-0" style={{ transform: "translateY(4px)" }}>
+          <div className="relative flex items-center justify-center ml-1" style={{ transform: "translateY(4px)" }}>
             <div className="w-1.5 h-1.5 bg-[#31A84F] rounded-full shadow-md" />
             <div className="absolute w-2.5 h-2.5 bg-[#31A84F] rounded-full opacity-15 animate-pulse" />
           </div>

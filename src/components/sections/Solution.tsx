@@ -20,7 +20,10 @@ export default function Solution({ rootRef, children, onQuickSim }: SolutionProp
       >
         {/* Opportunity Section */}
         <div className="mb-16">
-          <h2 className="text-5xl font-bold mb-8" style={{ color: "#FCCC0A" }}>Opportunity: City Circuit</h2>
+          <h2 className="flex items-center justify-start mb-8 gap-8">
+            <span className="text-5xl font-bold" style={{ color: "#FCCC0A" }}>Opportunity:</span>
+            <span className="text-7xl font-normal" style={{ color: "transparent", WebkitTextStroke: "2px #FCCC0A", WebkitTextFillColor: "transparent" }}>City Circuit</span>
+          </h2>
           <div className="space-y-5 text-lg leading-relaxed" style={{ color: "#FCCC0A" }}>
             <p>
               Federal programs like the <strong>FTA's Reconnecting Communities</strong> and <strong>Thriving Communities Initiative</strong> increasingly require data-backed equity justifications in transportation proposals.

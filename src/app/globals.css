@@ -34,3 +34,8 @@ body {
   /* Vendor-prefixed for WebKit-based browsers if available */
   -webkit-text-wrap: balance;
 }
+
+/* Apply pretty text wrapping to all paragraphs and list items */
+p, li {
+  text-wrap: pretty;
+}

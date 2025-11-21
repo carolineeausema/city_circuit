@@ -8,11 +8,11 @@ interface ProblemProps {
 
 export default function Problem({ rootRef, children }: ProblemProps) {
   return (
-    <section ref={rootRef} className="px-8 bg-white" style={{ color: "#0039A6", minHeight: "100vh" }}>
+    <section ref={rootRef} className="px-8 bg-white" style={{ color: "#EE352E", minHeight: "100vh" }}>
       <div className="max-w-4xl mx-auto text-left">
-        <h2 className="text-5xl font-bold mb-8" style={{ color: "#0039A6" }}>The Problem</h2>
+        <h2 className="text-5xl font-bold mb-8" style={{ color: "#EE352E" }}>The Problem</h2>
         
-        <div className="space-y-6 text-lg leading-relaxed mb-8" style={{ color: "#0039A6" }}>
+        <div className="space-y-6 text-lg leading-relaxed mb-8" style={{ color: "#EE352E" }}>
           <p>
             Transit connects people to opportunity, but planning new routes is often <strong>opaque, technical, and inaccessible</strong> to the communities it affects.
           </p>
@@ -24,7 +24,7 @@ export default function Problem({ rootRef, children }: ProblemProps) {
           <div className="h-15" />
           
           <div className="my-8">
-            <h3 className="text-2xl font-bold mb-6" style={{ color: "#0039A6" }}>In the US:</h3>
+            <h3 className="text-2xl font-bold mb-6" style={{ color: "#EE352E" }}>In the US:</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Card 1 - whole card is a link */}
               <a
@@ -32,9 +32,9 @@ export default function Problem({ rootRef, children }: ProblemProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Zero-vehicle households stat — read Brookings 2016 report"
-                className="group bg-white border-2 border-[#0039A6] rounded-xl shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 hover:bg-[#0039A6] hover:text-white focus:outline-none focus:ring-4 focus:ring-[#0039A6]/30 relative"
+                className="group bg-white border-2 border-[#EE352E] rounded-xl shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 hover:bg-[#EE352E] hover:text-white focus:outline-none focus:ring-4 focus:ring-[#EE352E]/30 relative"
               >
-                <div className="text-4xl md:text-5xl font-extrabold mb-2 transition-colors duration-200 group-hover:text-white text-[#0039A6]">700,000+</div>
+                <div className="text-4xl md:text-5xl font-extrabold mb-2 transition-colors duration-200 group-hover:text-white text-[#EE352E]">700,000+</div>
                 <div className="text-lg font-semibold text-center transition-colors duration-200 group-hover:text-white">
                   Zero-vehicle households in major metros lack reliable transit access
                 </div>
@@ -46,9 +46,9 @@ export default function Problem({ rootRef, children }: ProblemProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Unreliable transportation stat — read MEPS Stat 558"
-                className="group bg-white border-2 border-[#0039A6] rounded-xl shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 hover:bg-[#0039A6] hover:text-white focus:outline-none focus:ring-4 focus:ring-[#0039A6]/30 relative"
+                className="group bg-white border-2 border-[#EE352E] rounded-xl shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 hover:bg-[#EE352E] hover:text-white focus:outline-none focus:ring-4 focus:ring-[#EE352E]/30 relative"
               >
-                <div className="text-4xl md:text-5xl font-extrabold mb-2 transition-colors duration-200 group-hover:text-white text-[#0039A6]">6.2%</div>
+                <div className="text-4xl md:text-5xl font-extrabold mb-2 transition-colors duration-200 group-hover:text-white text-[#EE352E]">6.2%</div>
                 <div className="text-lg font-semibold text-center transition-colors duration-200 group-hover:text-white">
                   Adults reporting missed work or appointments due to unreliable transit
                 </div>
@@ -60,9 +60,9 @@ export default function Problem({ rootRef, children }: ProblemProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Transit deserts stat — read Smithsonian 2018 article"
-                className="group bg-white border-2 border-[#0039A6] rounded-xl shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 hover:bg-[#0039A6] hover:text-white focus:outline-none focus:ring-4 focus:ring-[#0039A6]/30 relative"
+                className="group bg-white border-2 border-[#EE352E] rounded-xl shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 hover:bg-[#EE352E] hover:text-white focus:outline-none focus:ring-4 focus:ring-[#EE352E]/30 relative"
               >
-                <div className="text-4xl md:text-5xl font-extrabold mb-2 transition-colors duration-200 group-hover:text-white text-[#0039A6]">43%</div>
+                <div className="text-4xl md:text-5xl font-extrabold mb-2 transition-colors duration-200 group-hover:text-white text-[#EE352E]">43%</div>
                 <div className="text-lg font-semibold text-center transition-colors duration-200 group-hover:text-white">
                   Transit-dependent residents in major cities live in transit deserts
                 </div>
@@ -74,25 +74,17 @@ export default function Problem({ rootRef, children }: ProblemProps) {
           <div className="h-15" />
           
           <div className="relative">
-            <p className="text-xl font-medium mt-6 mb-0 text-[#0039A6] p-6 rounded-lg text-center">
+            <p className="text-xl font-medium mt-6 mb-0 text-[#EE352E] p-6 rounded-lg text-center">
               Residents don't have an easy way to understand or influence local transit changes.            
             </p>
           </div>
 
         </div>
-
-        <div className="flex justify-center mt-8">
-          <div className="w-full border-2 border-[#FCCC0A] rounded-lg px-6 py-4">
-            <h3 className="text-center text-5xl font-normal m-0" style={{ color: "transparent", WebkitTextStroke: "2px #0039A6", WebkitTextFillColor: "transparent" }}>
-              City Circuit proposes to fill that gap.
-            </h3>
-          </div>
-        </div>
         
         {children}
       </div>
 
-      <div className="h-40" />
+      <div className="h-20" />
     </section>
   );
 }

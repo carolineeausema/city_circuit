@@ -125,7 +125,7 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
             const isActive = activeIndex === i;
             // Custom positions: Problem at 15%, Idea at 45%, Solution at 85%
             // This gives enough room for labels to display properly
-            const customPositions = [0.15, 0.45, 0.85];
+            const customPositions = [0.15, 0.35, 0.6];
             const leftPosition = customPositions[i] * 100;
             
             return (

@@ -101,14 +101,13 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
       ref={containerRef}
       className="fixed left-0 right-0 bottom-6 z-50 pointer-events-none"
     >
-      {/* Backdrop blur with fade effect */}
+      {/* Opaque white background with fade effect */}
       <div 
-        className="absolute inset-x-0 backdrop-blur-xl"
+        className="absolute inset-x-0"
         style={{
           top: '-3rem',
           bottom: '-1.5rem',
-          maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 100%)',
+          background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%)',
         }}
       />
       

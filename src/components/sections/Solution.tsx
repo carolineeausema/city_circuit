@@ -89,18 +89,29 @@ export default function Solution({ rootRef, children, onQuickSim }: SolutionProp
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/5 rounded-lg p-8 border-2 border-dashed border-white/20"
           >
-            <div className="flex flex-col items-center justify-center h-64 text-gray-400">
-              <div className="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+            <div className="relative group">
+              <a 
+                href="https://chriswhong.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block relative overflow-hidden rounded-lg"
+              >
+                <img 
+                  src="/transit desert.jpg" 
+                  alt="Transit Desert Visualization"
+                  className="w-full h-auto transition-opacity hover:opacity-90"
+                  style={{
+                    clipPath: 'inset(0 0 40% 0)',
+                    transform: 'scale(1)',
+                    transformOrigin: 'top center'
+                  }}
+                />
+              </a>
+              {/* Hover popup - moved outside the link so it doesn't get clipped */}
+              <div className="absolute top-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                Map credits: https://chriswhong.com/
               </div>
-              <p className="text-lg font-medium text-center text-white mb-2">Interactive Demo Coming Soon</p>
-              <p className="text-sm text-center mt-2 text-gray-400 max-w-md mb-4">
-                A fully functional prototype of City Circuit's interface is currently in development
-              </p>
             </div>
           </motion.div>
         </div>

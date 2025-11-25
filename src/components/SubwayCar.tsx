@@ -19,7 +19,7 @@ const SubwayCar: React.FC<SubwayCarProps> = ({ progress }) => {
 
   return (
     <div
-      className="absolute bottom-4 flex items-center transform transition-transform duration-100"
+      className="absolute bottom-12 flex items-center transform transition-transform duration-100"
       style={{
         left: `${progress * 100}%`,
         transform: `translateX(-50%) scale(0.8)`,

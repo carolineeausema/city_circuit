@@ -99,19 +99,20 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
   return (
     <div
       ref={containerRef}
-      className="fixed left-0 right-0 bottom-8 z-50 pointer-events-none overflow-hidden"
+      className="fixed left-0 right-0 bottom-0 z-50 pointer-events-none overflow-hidden"
+      style={{ paddingTop: '4rem' }}
     >
       {/* Opaque white background with fade effect */}
       <div 
         className="absolute inset-x-0"
         style={{
-          top: '-2rem',
-          bottom: '-2rem',
-          background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%)',
+          top: '-12rem',
+          bottom: '0',
+          background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 25%)'
         }}
       />
       
-      <div className="relative w-full px-0 z-10">
+      <div className="relative w-full px-0 z-10 pb-8">
         {/* SubwayCar train */}
         <SubwayCar progress={scrollProgress} />
 

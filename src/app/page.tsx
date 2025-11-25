@@ -113,7 +113,7 @@ export default function HomePage() {
         <Details rootRef={detailsRef} />
 
         {/* Extra space for bottom line */}
-        <div className="h-32 bg-white" />
+        <div className="h-32" />
       </div>
     </main>
   );

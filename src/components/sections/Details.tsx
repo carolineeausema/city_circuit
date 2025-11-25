@@ -595,10 +595,7 @@ export default function Details({ rootRef, children }: DetailsProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <p className="text-xl font-medium text-center text-white mb-2">Interactive Dashboard Preview</p>
-              <p className="text-sm text-center text-gray-400 max-w-md">
-                Coming soon: A fully interactive demo where you can explore Sacramento's transit network and simulate improvements in real-time
-              </p>
+              <p className="text-xl font-medium text-center text-white mb-2">Coming Soon: Interactive Dashboard Preview</p>
             </div>
           </motion.div>
         </div>

@@ -99,14 +99,14 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
   return (
     <div
       ref={containerRef}
-      className="fixed left-0 right-0 bottom-6 z-50 pointer-events-none"
+      className="fixed left-0 right-0 bottom-12 z-50 pointer-events-none"
     >
       {/* Opaque white background with fade effect */}
       <div 
         className="absolute inset-x-0"
         style={{
-          top: '-3rem',
-          bottom: '-1.5rem',
+          top: '-2rem',
+          bottom: '-1rem',
           background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%)',
         }}
       />
@@ -116,7 +116,7 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
         <SubwayCar progress={scrollProgress} />
 
         {/* Station dots */}
-        <div className="relative flex items-center justify-center h-12">
+        <div className="relative flex items-center justify-center h-8">
           {/* Track line - positioned to go through the center of the dots */}
           <div className="absolute top-1/2 left-0 w-full h-px bg-black rounded-full transform -translate-y-1/2 z-0" />
           
@@ -135,24 +135,24 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
                   left: `${leftPosition}%`,
                   transform: 'translateX(-50%)',
                   top: '50%',
-                  marginTop: '-10px' // Half the height of the dot (20px / 2)
+                  marginTop: '-8px' // Half the height of the smaller dot (16px / 2)
                 }}
               >
                 {/* Dot */}
                 <div className="relative z-10">
                   <div
-                    className={`rounded-full w-5 h-5 flex items-center justify-center transform transition-transform duration-300 ${
+                    className={`rounded-full w-4 h-4 flex items-center justify-center transform transition-transform duration-300 ${
                       isActive ? "scale-125" : "scale-100"
                     }`}
                   >
                     <span
                       style={{
                         display: "block",
-                        width: 14,
-                        height: 14,
+                        width: 10,
+                        height: 10,
                         borderRadius: 9999,
                         background: isActive ? s.color : "rgba(0,0,0,0.18)",
-                        boxShadow: isActive ? `0 0 12px ${s.color}66` : "none",
+                        boxShadow: isActive ? `0 0 8px ${s.color}66` : "none",
                       }}
                     />
                   </div>

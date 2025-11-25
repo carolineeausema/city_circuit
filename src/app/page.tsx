@@ -7,7 +7,7 @@ import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
 import Details from "@/components/sections/Details";
 import { useInView, useScroll, useTransform, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import SectionDivider from "@/components/SectionDivider";
 
 export default function HomePage() {
@@ -16,12 +16,30 @@ export default function HomePage() {
   const solutionRef = React.useRef<HTMLElement>(null!);
   const detailsRef = React.useRef<HTMLElement>(null!);
   const [showTooltip, setShowTooltip] = useState(false);
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   const stations = [
     { label: "Problem", color: "#EE352E", ref: problemRef }, // Red
     { label: "Idea", color: "#FCCC0A", ref: solutionRef }, // Keep yellow
     { label: "Solution", color: "#00933C", ref: detailsRef }, // Green
   ];
+
+  // Handle click outside to close tooltip
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (tooltipRef.current && !tooltipRef.current.contains(event.target as Node)) {
+        setShowTooltip(false);
+      }
+    };
+
+    if (showTooltip) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showTooltip]);
 
   // For BottomLine, compute inView
   const stationsWithInView = stations.map((s) => ({
@@ -38,11 +56,10 @@ export default function HomePage() {
       
       {/* Layer 3: All page content (top) - opaque backgrounds */}
       <div className="relative z-10">
-        {/* Asterisk with hover tooltip */}
-        <div className="fixed top-8 left-8 z-40 group cursor-pointer">
+        {/* Asterisk with click tooltip */}
+        <div ref={tooltipRef} className="fixed top-8 left-8 z-40 group cursor-pointer">
           <div
-            onMouseEnter={() => setShowTooltip(true)}
-            onMouseLeave={() => setShowTooltip(false)}
+            onClick={() => setShowTooltip(!showTooltip)}
             className="text-6xl font-bold hover:text-gray-500 transition-colors"
             style={{ color: "#00933C" }}
           >
@@ -68,6 +85,9 @@ export default function HomePage() {
                     </svg>
                     View Source Code
                   </a>
+                  <p className="text-xs text-gray-500 mt-2">
+                    Note: This link leads to my GitHub repository and will show my name.
+                  </p>
                 </div>
               </div>
             </div>

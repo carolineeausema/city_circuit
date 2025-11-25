@@ -19,17 +19,17 @@ const SubwayCar: React.FC<SubwayCarProps> = ({ progress }) => {
 
   return (
     <div
-      className="absolute bottom-6 flex items-center transform transition-transform duration-100"
+      className="absolute bottom-4 flex items-center transform transition-transform duration-100"
       style={{
         left: `${progress * 100}%`,
-        transform: `translateX(-50%)`,
+        transform: `translateX(-50%) scale(0.8)`,
       }}
     >
       {/* D-Train Text in Deloitte Style with quad shape and pointed bottom right */}
-      <div className="relative px-4 py-2 bg-gray-300 shadow-lg" style={{ borderRadius: "0 50px 0 0" }}>
+      <div className="relative px-3 py-1.5 bg-gray-300 shadow-lg" style={{ borderRadius: "0 40px 0 0" }}>
         <div className="flex items-center gap-0 whitespace-nowrap relative z-10">
           <span
-            className="font-bold text-sm tracking-wider text-gray-800"
+            className="font-bold text-xs tracking-wider text-gray-800"
             style={{
               fontFamily: "'Arial', 'Helvetica', sans-serif",
               letterSpacing: "0.05em",
@@ -40,9 +40,9 @@ const SubwayCar: React.FC<SubwayCarProps> = ({ progress }) => {
           </span>
           
           {/* Deloitte Green Dot - positioned like a period with no gap */}
-          <div className="relative flex items-center justify-center ml-1" style={{ transform: "translateY(4px)" }}>
-            <div className="w-1.5 h-1.5 bg-[#31A84F] rounded-full shadow-md" />
-            <div className="absolute w-2.5 h-2.5 bg-[#31A84F] rounded-full opacity-15 animate-pulse" />
+          <div className="relative flex items-center justify-center ml-1" style={{ transform: "translateY(3px)" }}>
+            <div className="w-1 h-1 bg-[#31A84F] rounded-full shadow-md" />
+            <div className="absolute w-2 h-2 bg-[#31A84F] rounded-full opacity-15 animate-pulse" />
           </div>
         </div>
       </div>

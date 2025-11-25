@@ -14,7 +14,7 @@ interface LabelProps {
 
 const Label: React.FC<LabelProps> = ({ station, isActive }) => {
   return (
-    <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-max pointer-events-auto flex items-center">
+    <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-max pointer-events-auto flex items-center">
       <div
         onClick={() => station.ref.current?.scrollIntoView({ behavior: "smooth" })}
         className={`flex items-center px-3 py-1 cursor-pointer select-none shadow-md rounded-sm ${

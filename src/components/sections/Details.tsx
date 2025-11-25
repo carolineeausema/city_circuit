@@ -120,12 +120,12 @@ export default function Details({ rootRef, children }: DetailsProps) {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="hidden md:block"
+              className="hidden md:block flex items-center"
+              style={{ height: '160px' }} // Match the stage circle height
             >
-              <svg width="120" height="60" viewBox="0 0 120 60" fill="none">
-                <line x1="10" y1="30" x2="110" y2="30" stroke="#0039A6" strokeWidth="2"/>
-                <circle cx="10" cy="30" r="3" fill="#0039A6"/>
-                <circle cx="110" cy="30" r="3" fill="#0039A6"/>
+              <svg width="120" height="60" viewBox="0 0 120 60" fill="none" style={{ transform: 'translateY(-10px)' }}>
+                <line x1="0" y1="30" x2="115" y2="30" stroke="#0039A6" strokeWidth="2"/>
+                <circle cx="118" cy="30" r="3" fill="#0039A6"/>
               </svg>
             </motion.div>
 
@@ -153,12 +153,12 @@ export default function Details({ rootRef, children }: DetailsProps) {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
-              className="hidden md:block"
+              className="hidden md:block flex items-center"
+              style={{ height: '160px' }} // Match the stage circle height
             >
-              <svg width="120" height="60" viewBox="0 0 120 60" fill="none">
-                <line x1="10" y1="30" x2="110" y2="30" stroke="#FCCC0A" strokeWidth="2"/>
-                <circle cx="10" cy="30" r="3" fill="#FCCC0A"/>
-                <circle cx="110" cy="30" r="3" fill="#FCCC0A"/>
+              <svg width="120" height="60" viewBox="0 0 120 60" fill="none" style={{ transform: 'translateY(-10px)' }}>
+                <line x1="0" y1="30" x2="115" y2="30" stroke="#FCCC0A" strokeWidth="2"/>
+                <circle cx="118" cy="30" r="3" fill="#FCCC0A"/>
               </svg>
             </motion.div>
 
@@ -384,6 +384,9 @@ export default function Details({ rootRef, children }: DetailsProps) {
           </div>
         </div>
 
+        {/* Additional spacing before Analysis section */}
+        <div className="h-16" />
+
         {/* Analytical Layer - Redesigned as timeline/process flow */}
         <div className="mb-20">
           <motion.div 
@@ -486,6 +489,9 @@ export default function Details({ rootRef, children }: DetailsProps) {
           </div>
         </div>
 
+        {/* Additional spacing before User Experience section */}
+        <div className="h-16" />
+
         {/* User Interface - Interactive showcase */}
         <div className="mb-20">
           <motion.div 
@@ -503,7 +509,7 @@ export default function Details({ rootRef, children }: DetailsProps) {
             </div>
             <div className="h-10" />
             <p className="text-base max-w-4xl mx-auto" style={{ color: "#00933C" }}>
-              An intuitive interface that makes complex transportation data accessible to everyone. This becomes a compelling visual narrative that policymakers can use in grant proposals and budget hearings — connecting data to lived experience.
+              An intuitive interface that makes complex transportation data accessible to everyone. This becomes a <strong>compelling visual narrative</strong> that policymakers can use in grant proposals and budget hearings — connecting data to lived experience.
             </p>
           </motion.div>
 
@@ -770,8 +776,8 @@ export default function Details({ rootRef, children }: DetailsProps) {
             </div>
             
             <div className="mt-8 text-center">
-              <p className="text-xl font-semibold text-gray-800 max-w-3xl mx-auto">
-                This becomes a compelling visual narrative that policymakers can use in grant proposals and budget hearings — 
+              <p className="text-xl text-gray-800 max-w-3xl mx-auto">
+                This becomes a compelling visual narrative that policymakers can use in <strong>grant proposals and budget hearings</strong> — 
                 <span className="text-green-600"> connecting data to lived experience</span>.
               </p>
             </div>

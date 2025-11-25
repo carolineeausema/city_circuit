@@ -99,14 +99,14 @@ export default function BottomLine({ stations }: { stations: Station[] }) {
   return (
     <div
       ref={containerRef}
-      className="fixed left-0 right-0 bottom-12 z-50 pointer-events-none"
+      className="fixed left-0 right-0 bottom-8 z-50 pointer-events-none overflow-hidden"
     >
       {/* Opaque white background with fade effect */}
       <div 
         className="absolute inset-x-0"
         style={{
           top: '-2rem',
-          bottom: '-1rem',
+          bottom: '-2rem',
           background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%)',
         }}
       />

@@ -48,7 +48,7 @@ export default function HomePage() {
   }));
 
   return (
-    <main className="relative overflow-x-visible min-h-screen">
+    <main className="relative overflow-x-hidden min-h-screen">
       {/* Layer 1: White background (bottom) */}
       <div className="fixed top-0 left-0 w-full h-full bg-white -z-10" />
 
